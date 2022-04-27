@@ -1,6 +1,7 @@
 {
   "name": "@f-ui/query",
-  "version": "0.0.1-alpha",
+  "version": "0.0.11-alpha",
+   "private": false,
   "author": "facobackup",
   "license": "MIT",
   "main": "dist/index.js",
