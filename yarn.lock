@@ -1024,10 +1024,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@f-ui/core@0.1.47-alpha":
-  version "0.1.47-alpha"
-  resolved "https://registry.yarnpkg.com/@f-ui/core/-/core-0.1.47-alpha.tgz#510573a814d620da537f483fc8126456bc10ecbb"
-  integrity sha512-qhhAAuG0RM0Rh6763rQcGIcejhaX1jfwM9TbRztAQ2Az0aP9rGKERN83S4jHKbRtIW9SwRONKyyodRq4qTN4lQ==
+"@f-ui/core@^0.1.50-alpha":
+  version "0.1.50-alpha"
+  resolved "https://registry.yarnpkg.com/@f-ui/core/-/core-0.1.50-alpha.tgz#ec4ddac418475edc82db4eab8c693732dd738c9c"
+  integrity sha512-GRZllPBk9Yo9PgTFWcDS/ndqvU//RfsLWSqVIsywcFyHW1z6PWgTWFErjnzhyGp5myaIDvSawiXYmNxqBfXwPA==
   dependencies:
     prop-types "^15.7.2"
     react "17.0.2"

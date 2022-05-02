@@ -12,7 +12,7 @@ export default function Header(props) {
     const {
         getType,
         parseDate,
-    } = useHeader(props.dispatch, props.actions)
+    } = useHeader( )
     const options = useMemo(() => {
         const base = [
             {

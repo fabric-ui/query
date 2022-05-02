@@ -1,27 +1,4 @@
 
-.modalWrapper {
-    height: fit-content;
-
-    width: 25%;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    padding: 8px;
-
-    background: var(--fabric-background-primary);
-    border-radius: 5px;
-    color: var(--fabric-color-secondary);
-
-    box-shadow: var(--fabric-boxshadow);
-    display: flex;
-
-
-}
-
 .overflow {
     white-space: nowrap;
     overflow: hidden;
@@ -77,32 +54,6 @@
 
 }
 
-.fields {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 4px;
-}
-
-.mainButton {
-    font-size: .7rem !important;
-    font-weight: 550;
-    height: 25px;
-    width: fit-content;
-    padding: 4px !important;
-
-
-    background: var(--fabric-border-primary) !important;
-}
-
-.mainButtonWrapper {
-    width: 250px !important;
-
-    border-radius: 5px !important;
-
-    transform: translate(0, calc(50% + 16px)) !important;
-
-}
-
 .button {
     width: 20px;
     height: 20px;
@@ -120,22 +71,6 @@
     align-content: flex-start;
     overflow-y: auto;
 
-}
-
-.filterButton {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    gap: 8px;
-    border-radius: 0 !important;
-    border-top: var(--fabric-border-primary) 1px solid !important;
-
-
-}
-
-.filterButton:active {
-    background: var(--fabric-background-secondary);
 }
 
 /*.filterButton[data-highlight]:active {*/

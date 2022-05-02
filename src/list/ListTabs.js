@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useEffect, useMemo} from "react";
 import PropTypes from "prop-types";
 import {VARIANTS} from "./List";
 import styles from './styles/Tabs.module.css'
-import {useEffect, useMemo} from "react";
 import {Button} from "@f-ui/core";
 
 export default function ListTabs(props) {

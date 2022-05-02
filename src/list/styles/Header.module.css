@@ -16,12 +16,6 @@
 
 }
 
-.dropdownLabel {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
 .header {
 
     position: relative;
@@ -100,15 +94,6 @@ gap: 4px;
     gap: 8px;
     height: fit-content;
     align-content: flex-start;
-}
-
-.selectWrapper {
-    display: flex;
-    gap: 8px;
-    font-size: .9rem;
-    width: 50%;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 .button {

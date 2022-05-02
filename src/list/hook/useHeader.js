@@ -1,8 +1,6 @@
 import React from "react";
 
-export default function useHeader(dispatch, actions) {
-
-
+export default function useHeader( ) {
     const getType = (object) => {
         let label = 'é'
         if (object.greater_than === true)
