@@ -26,5 +26,8 @@ export default {
    equalTo: 'Equal to',
    notEqual: 'Not equal',
    contain: 'Contain',
-   apply: 'Apply'
+   apply: 'Apply',
+
+   error: 'Some error occurred',
+   success: 'Success'
 }
