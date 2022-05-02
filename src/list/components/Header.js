@@ -6,6 +6,7 @@ import keyTemplate from "../templates/keyTemplate";
 import Filter from "../../filter/Filter";
 import {Button, Dropdown, DropdownOption, DropdownOptions, ToolTip} from "@f-ui/core";
 import {VARIANTS} from "../List";
+import useLocale from "../../locale/useLocale";
 
 
 export default function Header(props) {
@@ -13,16 +14,18 @@ export default function Header(props) {
         getType,
         parseDate,
     } = useHeader( )
+
+   const translate = useLocale()
     const options = useMemo(() => {
         const base = [
             {
-                label: 'Mínimo',
+                label: translate('minimal')  ,
                 icon: 'format_list_bulleted',
                 onClick: () => props.setVariant(VARIANTS.MINIMAL),
                 variant: VARIANTS.MINIMAL
             },
             {
-                label: 'Extendido',
+                label: translate('extended')  ,
                 icon: 'view_list',
                 onClick: () => props.setVariant(VARIANTS.EMBEDDED),
                 variant: VARIANTS.EMBEDDED
@@ -72,7 +75,7 @@ export default function Header(props) {
                         <DropdownOptions>
 
                             <DropdownOption option={{
-                                label: 'Recarregar',
+                                label: translate('reload'),
                                 icon: <span className="material-icons-round"
                                             style={{fontSize: '1.2rem'}}>refresh</span>,
                                 onClick: () => {
@@ -80,7 +83,7 @@ export default function Header(props) {
                                 }
                             }}/>
                             <DropdownOption option={{
-                                label: 'Configurações',
+                                label: translate('settings'),
                                 icon: <span className="material-icons-round"
                                             style={{fontSize: '1.2rem'}}>settings</span>,
                                 onClick: () => {

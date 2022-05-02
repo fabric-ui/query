@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import shared from './styles/Shared.module.css'
 import {DataRow, Dropdown, DropdownOptions, Modal, ToolTip} from "@f-ui/core";
 import useQuery from "../hooks/useQuery";
+import useLocale from "../locale/useLocale";
 
 export default function Selector(props) {
     const [open, setOpen] = useState(false)
@@ -12,7 +13,7 @@ export default function Selector(props) {
     useEffect(() => {
         if (props.openOnMount) setOpen(true)
     }, [props.openOnMount])
-
+   const translate = useLocale()
 
     return (<>
 
@@ -67,7 +68,7 @@ export default function Selector(props) {
                  style={{
                      color: props.value === null || props.value === undefined ? '#ff5555' : undefined,
                  }}>
-                {props.required ? 'Este campo é obrigatório' : null}
+                {props.required ? translate('required') : null}
                 {props.helperText ? <div className={shared.helperText}>
                     <span className="material-icons-round" style={{fontSize: '1rem'}}>info</span>
                     <ToolTip content={props.helperText} align={'start'}/>

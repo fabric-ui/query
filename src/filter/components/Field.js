@@ -4,55 +4,56 @@ import useFilter from "../hooks/useFilters";
 import React from 'react'
 import keyTemplate from "../../list/templates/keyTemplate";
 import {Button} from "@f-ui/core";
+import useLocale from "../../locale/useLocale";
 
 
 export default function Field(props) {
-    const {
-        getField,
-        changed
-    } = useFilter(props.selectedField, props.setSelectedField, props.setSelectorOpen, props.selectorOpen,props.applyFilter)
+   const {
+      getField,
+      changed
+   } = useFilter(props.selectedField, props.setSelectedField, props.setSelectorOpen, props.selectorOpen, props.applyFilter)
+   const translate = useLocale()
+   if (props.selectedField?.type !== 'object')
+      return (
+         <div
+            className={styles.container}
+         >
 
-    if (props.selectedField?.type !== 'object')
-        return (
-            <div
-                className={styles.container}
-            >
+            {props.selectedField !== null && props.selectedField !== undefined ?
+               (
+                  <>
+                     {getField(() => null)}
+                     <Button
+                        styles={{marginTop: '8px'}}
+                        className={styles.buttonField}
+                        variant={'filled'}
+                        disabled={!changed}
+                        onClick={() => props.applyFilter()}>
+                        <span style={{fontSize: '1.1rem'}} className="material-icons-round">done</span>
+                        {translate('apply')}
+                     </Button>
 
-                {props.selectedField !== null && props.selectedField !== undefined ?
-                    (
-                        <>
-                            {getField(() => null)}
-                            <Button
-                                styles={{marginTop: '8px'}}
-                                className={styles.buttonField}
-                                variant={'filled'}
-                                disabled={!changed}
-                                onClick={() => props.applyFilter()}>
-                                <span style={{fontSize: '1.1rem'}} className="material-icons-round">done</span>
-                                Aplicar
-                            </Button>
-
-                        </>
-                    )
-                    :
-                    'Nada selecionado'
-                }
-            </div>
-        )
-    else if (props.selectedField)
-        return getField(props.handleClose)
-    else
-        return null
+                  </>
+               )
+               :
+               translate('nothing')
+            }
+         </div>
+      )
+   else if (props.selectedField)
+      return getField(props.handleClose)
+   else
+      return null
 }
 
 Field.propTypes = {
-    handleClose: PropTypes.func,
+   handleClose: PropTypes.func,
 
-    applyFilter: PropTypes.func,
-    keys: PropTypes.arrayOf(keyTemplate).isRequired,
-    selectorOpen: PropTypes.bool,
-    setSelectorOpen: PropTypes.func,
-    selectedField: PropTypes.object,
-    setSelectedField: PropTypes.func,
+   applyFilter: PropTypes.func,
+   keys: PropTypes.arrayOf(keyTemplate).isRequired,
+   selectorOpen: PropTypes.bool,
+   setSelectorOpen: PropTypes.func,
+   selectedField: PropTypes.object,
+   setSelectedField: PropTypes.func,
 
 }

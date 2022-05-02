@@ -2,8 +2,10 @@ import {Button, DataRow, Modal} from "@f-ui/core";
 import styles from '../styles/Validate.module.css'
 import PropTypes from "prop-types";
 import React from "react";
+import useLocale from "../../locale/useLocale";
 
 export default function Validate(props) {
+   const translate = useLocale()
     return (
         <Modal
             open={Object.keys(props.onValidation).length > 0}
@@ -21,13 +23,13 @@ export default function Validate(props) {
 
             <div className={styles.choices}>
                 <Button styles={{'--fabric-accent-color': '#ff5555'}} onClick={() => props.setOnValidation({})} variant={'filled'}>
-                    Não
+                   {translate('no')}
                 </Button>
                 <Button styles={{'--fabric-accent-color': '#0095ff'}} onClick={() => {
                     props.onValidation.onAccept()
                     props.setOnValidation({})
                 }} variant={'filled'}>
-                    Sim
+                   {translate('yes')}
                 </Button>
             </div>
         </Modal>

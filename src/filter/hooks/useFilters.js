@@ -4,6 +4,7 @@ import styles from '../../list/styles/Header.module.css'
 
 import Selector from "../../selector/Selector";
 import {Checkbox, DateField, TextField} from "@f-ui/core";
+import useLocale from "../../locale/useLocale";
 
 export default function useFilter(filter, setFilter, setSelectorOpen, selectorOpen, applyFilter) {
     const [onInput, setOnInput] = useState(undefined)
@@ -12,7 +13,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
         return filter?.query ? filter.query : {}
     }, [filter])
 
-
+   const translate = useLocale()
     const handleChange = (value) => {
         setFilter(prevState => {
             if (filter.type === 'object')
@@ -52,7 +53,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                 return {...baseProps, ...{value: prevState.value, greater_than: true}}
                             })
                         }}
-                        label={'Maior que.'}
+                        label={translate('greaterThan')}
                     />
 
                     <Checkbox
@@ -64,7 +65,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                 return {...baseProps, ...{value: prevState.value, less_than: true}}
                             })
                         }}
-                        label={'Menor que.'}
+                        label={translate('lessThan')}
                     />
 
 
@@ -77,7 +78,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                 return {...baseProps, ...{value: prevState.value, equal_to: true}}
                             })
                         }}
-                        label={'Iqual a'}
+                        label={translate('equalTo')}
                     />
 
                 </div>
@@ -111,7 +112,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                         return {...baseProps, ...{value: prevState.value, equal_to: true}}
                                     })
                                 }}
-                                label={'É igual a'}
+                                label={translate('equalTo')}
                             />
                             <Checkbox
                                 noMargin={true}
@@ -122,7 +123,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                         return {...baseProps, ...{value: prevState.value, different_from: true}}
                                     })
                                 }}
-                                label={'Não é'}
+                                label={translate('notEqual')}
                             />
 
                             <Checkbox
@@ -134,7 +135,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                         return {...baseProps, ...{value: prevState.value, contains: true}}
                                     })
                                 }}
-                                label={'Contém'}
+                                label={translate('contain')}
                             />
                         </div>
                     </div>
