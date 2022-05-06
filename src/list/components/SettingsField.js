@@ -2,7 +2,7 @@ import styles from "../styles/Settings.module.css";
 
 import React from "react";
 import PropTypes from "prop-types";
-import {Button, ToolTip} from "@f-ui/core";
+import {Button} from "@f-ui/core";
 import useLocale from "../../locale/useLocale";
 
 export default function SettingsField(props){

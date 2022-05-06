@@ -22,8 +22,9 @@ export default function ListTabs(props) {
          <div className={styles.group}>
             <Button
                disabled={currentTab === 0}
-               styles={{borderRadius: '5px 0 0  5px'}}
-               variant={"outlined"}
+               variant={"minimal"}
+               styles={{borderRadius: '5px 0 0  5px', background: 'var(--fabric-border-primary)'}}
+
                className={styles.nav}
                onClick={() => {
                   setCurrentTab(prev => prev - 1)
@@ -33,7 +34,7 @@ export default function ListTabs(props) {
 
             <Button
                disabled={!props.hook.hasMore && p === currentTab || props.hook.data.length < 15}
-               variant={"outlined"}
+               variant={"filled"}
                styles={{borderRadius: '0  5px 5px  0'}}
                className={styles.nav}
                onClick={() => {
