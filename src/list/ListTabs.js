@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from "react";
 import PropTypes from "prop-types";
 import {VARIANTS} from "./List";
 import styles from './styles/Tabs.module.css'
-import {Button} from "@f-ui/core";
+import {Button, Dropdown, DropdownOption, DropdownOptions} from "@f-ui/core";
 import useLocale from "../locale/useLocale";
 
 export default function ListTabs(props) {
@@ -15,10 +15,32 @@ export default function ListTabs(props) {
       return currentPage - 1 >= 0 ? currentPage - 1 : 0
    }, [currentPage])
    const translate = useLocale()
-   return (<div className={styles.wrapper} style={{display: props.variant === VARIANTS.CARDS ? undefined : 'none'}}>
-         <div className={styles.cell}>
-            {translate('page')(currentPage, p)}
-         </div>
+
+   const options = useMemo(() => {
+      const res = []
+      for (let i = 0; i < currentPage; i++) {
+         res.push(<DropdownOption option={{
+            label: translate('page') + ' ' + i,
+            onClick: () => setCurrentTab(i)
+         }}/>)
+      }
+      return res
+   }, [currentPage])
+
+   return (
+      <div className={[styles.wrapper, props.hook.loading ? styles.loading : ''].join(' ')}
+           style={{display: props.variant === VARIANTS.CARDS ? undefined : 'none'}}>
+
+         <Dropdown className={styles.cell} styles={{width: 'fit-content', padding: '0'}}>
+            {translate('page')} {currentTab}
+            <DropdownOptions>
+               {options.map((e, i) => (
+                  <React.Fragment key={'tabs-choice-'+ i}>
+                     {e}
+                  </React.Fragment>
+               ))}
+            </DropdownOptions>
+         </Dropdown>
          <div className={styles.group}>
             <Button
                disabled={currentTab === 0}
@@ -33,7 +55,7 @@ export default function ListTabs(props) {
             </Button>
 
             <Button
-               disabled={!props.hook.hasMore && p === currentTab || props.hook.data.length < 15}
+               disabled={!props.hook.hasMore && p === currentTab || props.hook.data.length < 15 || props.hook.loading}
                variant={"filled"}
                styles={{borderRadius: '0  5px 5px  0'}}
                className={styles.nav}

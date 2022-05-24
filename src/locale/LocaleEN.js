@@ -18,9 +18,7 @@ export default {
    yes: 'Yes',
    no: 'No',
 
-   page: (c, p) => {
-      return `Page ${c} from ${p} loaded`
-   },
+   page: 'Page' ,
    greaterThan: 'Greater than',
    lessThan: 'Less than',
    equalTo: 'Equal to',
