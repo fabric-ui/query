@@ -1,32 +1,40 @@
 .wrapper {
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
+   border-radius: 50%;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 25px;
+   height: 25px;
 
-    min-width: 25px;
-    min-height: 25px;
+   min-width: 25px;
+   min-height: 25px;
 }
 
 .wrapper[data-size='medium'] {
-    width: 65px;
-    height: 65px;
+   width: 65px;
+   height: 65px;
 
-    min-width: 65px;
-    min-height: 65px;
+   min-width: 65px;
+   min-height: 65px;
 }
 
 .wrapper[data-size='big'] {
-    width: 100px;
-    height: 100px;
+   width: 100px;
+   height: 100px;
 
-    min-width: 100px;
-    min-height: 100px;
+   min-width: 100px;
+   min-height: 100px;
+}
+
+.wrapper[data-size='huge'] {
+   width: 200px;
+   height: 200px;
+
+   min-width: 200px;
+   min-height: 200px;
 }
 
 .img {
-    height: 100%;
+   height: 100%;
 }

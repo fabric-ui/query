@@ -19,7 +19,7 @@ export default function List(props) {
    const {keys, keysDispatcher, actions, setOpenSettings, openSettings} = useList(props.keys)
 
    const lastElementRef = useInfiniteScroll(props.hook.setCurrentPage, props.hook.currentPage, props.hook.loading, props.hook.hasMore)
-   const [variant, setVariant] = useState(VARIANTS.EMBEDDED)
+   const [variant, setVariant] = useState(props.defaultVisualization === 'card' ? VARIANTS.CARDS : VARIANTS.EMBEDDED)
    const visualizeKeys = useMemo(() => {
       return keys.filter(k => k.type !== 'image' && variant !== VARIANTS.CARDS || variant === VARIANTS.CARDS)
    }, [variant])
@@ -33,15 +33,11 @@ export default function List(props) {
    const [currentTab, setCurrentTab] = useState(0)
 
    const toRender = useMemo(() => {
-      if (variant === VARIANTS.CARDS) {
-
+      if (variant === VARIANTS.CARDS)
          return props.hook.data.slice(currentTab * 15, currentTab * 15 + 15)
-      } else
-         return props.hook.data
+      return props.hook.data
    }, [props.hook.data, variant, currentTab])
-   useEffect(() => {
-      console.log(props.hook.loading)
-   }, [])
+
    const nodes = useMemo(() => {
       const isCard = variant === VARIANTS.CARDS
       const arr = isCard ? new Array(15).fill(0) : toRender
@@ -99,7 +95,7 @@ export default function List(props) {
                <ListTabs currentTab={currentTab}
                          setCurrentTab={setCurrentTab} hook={props.hook}
                          variant={variant}/>
-               {props.hook.data.length === 0 && !props.hook.loading?
+               {props.hook.data.length === 0 && !props.hook.loading ?
                   <div className={styles.empty}>
                      <span className={'material-icons-round'} style={{fontSize: '75px'}}>folder</span>
                      Nada encontrado
@@ -108,7 +104,7 @@ export default function List(props) {
                   null
                }
                {variant === VARIANTS.CARDS ?
-                  <Masonry changeListener={toRender} >
+                  <Masonry changeListener={toRender}>
                      {nodes}
                   </Masonry>
                   :
@@ -121,6 +117,7 @@ export default function List(props) {
 }
 
 List.propTypes = {
+   defaultVisualization: PropTypes.oneOf(['card', 'list']),
    mapKeyOnNull: PropTypes.shape({key: PropTypes.string, value: PropTypes.func}),
    hasCardView: PropTypes.bool,
    children: PropTypes.func,

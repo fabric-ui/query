@@ -23,7 +23,7 @@ export default function Filter(props) {
     return (
         <>
             <div className={styles.activeFilters}>
-                {props.filters.map((e, i) => (
+                {props.filters.map((e, i) => e.hidden ? null : (
                     <div className={styles.filter} key={'filter-key-' + i}>
                         <label className={styles.overflow} style={{fontWeight: 'bold'}}>
                             {e.label}

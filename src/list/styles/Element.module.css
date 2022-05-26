@@ -28,7 +28,6 @@
 
 .row {
     user-select: none;
-    padding: 4px;
     cursor: pointer !important;
     transition: 150ms linear;
 

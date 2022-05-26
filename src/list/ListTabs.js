@@ -10,7 +10,7 @@ export default function ListTabs(props) {
    const {currentTab, setCurrentTab} = props
    useEffect(() => {
       setCurrentTab(0)
-   }, [props.variant, props.hook.filters])
+   }, [props.variant, props.hook.filters, props.hook.sorts])
    const p = useMemo(() => {
       return currentPage - 1 >= 0 ? currentPage - 1 : 0
    }, [currentPage])

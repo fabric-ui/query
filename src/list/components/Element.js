@@ -21,7 +21,7 @@ export default function Element(props) {
          onMouseEnter={() => setOpen(true)}
          onMouseLeave={() => setOpen(false)}
       >
-         {props.options && (open || openDropdown) ? (
+         {props.options && props.options.length > 0 && (open || openDropdown) ? (
             <Dropdown
                variant={'filled'}
                className={[styles.dropdown, isCard ? styles.card : ''].join(' ')}
@@ -50,7 +50,7 @@ export default function Element(props) {
             </Dropdown>
          ) : null}
 
-         {props.loading && isCard ?
+         {props.loading && isCard  ?
             <div className={styles.load} style={{height: getRandomHeight()}}/>
             :
             <DataRow
