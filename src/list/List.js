@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import styles from './styles/List.module.css'
 import Header from "./components/Header";
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useMemo, useState} from "react";
 import keyTemplate from "./templates/keyTemplate";
 import useList from "./hook/useList";
 import Settings from "./components/Settings";
-import {DataProvider, Masonry, useInfiniteScroll, useListData} from "@f-ui/core"
+import {DataProvider, useInfiniteScroll, useListData} from "@f-ui/core"
 import Element from "./components/Element";
 import Validate from "./components/Validate";
 import ListTabs from "./ListTabs";
@@ -50,6 +50,7 @@ export default function List(props) {
          return (
             <React.Fragment key={index + '-list-row'}>
                <Element
+                  cardHeight={props.cardHeight}
                   setOnValidation={setOnValidation}
                   onRowClick={props.onRowClick}
                   variant={variant}
@@ -104,9 +105,9 @@ export default function List(props) {
                   null
                }
                {variant === VARIANTS.CARDS ?
-                  <Masonry changeListener={toRender}>
+                  <div className={styles.listCards}>
                      {nodes}
-                  </Masonry>
+                  </div>
                   :
                   nodes
                }
@@ -117,6 +118,7 @@ export default function List(props) {
 }
 
 List.propTypes = {
+   cardHeight: PropTypes.string,
    defaultVisualization: PropTypes.oneOf(['card', 'list']),
    mapKeyOnNull: PropTypes.shape({key: PropTypes.string, value: PropTypes.func}),
    hasCardView: PropTypes.bool,

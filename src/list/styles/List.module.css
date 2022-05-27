@@ -1,51 +1,61 @@
 
 .tableWrapper {
-    max-width: 100%;
-    height: fit-content;
+   max-width: 100%;
+   height: fit-content;
 
-    overflow: hidden;
+   overflow: hidden;
 
-    display: grid;
-    align-content: flex-start;
+   display: grid;
+   align-content: flex-start;
 
-    color: var(--fabric-color-secondary);
+   color: var(--fabric-color-secondary);
 
 
-    padding-bottom: 64px;
+   padding-bottom: 64px;
 }
 
 .container {
 
 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-height: 100%;
-    height: 100%;
-    width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   max-height: 100%;
+   height: 100%;
+   width: 100%;
 
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
+   overflow-y: auto;
+   overflow-x: hidden;
+   position: relative;
 
 
 }
 
 .divider {
-    height: 50%;
-    width: 1px;
-    background: var(--fabric-border-secondary);
+   height: 50%;
+   width: 1px;
+   background: var(--fabric-border-secondary);
 }
 
 
-.empty{
-    display: grid;
-    justify-content: center;
+.empty {
+   display: grid;
+   justify-content: center;
 
-    color: var(--fabric-color-quaternary);
-    justify-items: center;
+   color: var(--fabric-color-quaternary);
+   justify-items: center;
 
 
-    font-size: .8rem;
-    font-weight: 550;
+   font-size: .8rem;
+   font-weight: 550;
+}
+
+.listCards {
+
+   display: flex;
+   justify-content: center;
+   flex-flow: wrap;
+   align-items: flex-start;
+   gap: 4px;
+
 }

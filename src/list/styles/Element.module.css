@@ -1,108 +1,112 @@
 
 .listRow {
-    height: fit-content;
-    position: relative;
+   height: fit-content;
+   position: relative;
 
-    cursor: pointer;
+   cursor: pointer;
 
 
 }
 
 
-.animation{
-    animation: pop 150ms ease-out forwards;
-    opacity: 0;
+.animation {
+   animation: pop 150ms ease-out forwards;
+   opacity: 0;
 }
 
 @keyframes pop {
-    0%{
+   0% {
 
-        opacity: 0;
+      opacity: 0;
 
-    }
+   }
 
-    100%{
-        opacity: 1;
-    }
+   100% {
+      opacity: 1;
+   }
 }
 
 .row {
-    user-select: none;
-    cursor: pointer !important;
-    transition: 150ms linear;
 
-    width: 100% !important;
+   user-select: none;
+   cursor: pointer !important;
+   transition: 150ms linear;
+
+   width: 100% !important;
+   padding-bottom: 8px;
+   align-content: center;
+   gap: 4px;
 }
 
 .row:hover {
-    border-color: var(--fabric-accent-color);
+   border-color: var(--fabric-accent-color);
 
 }
 
 .row:active {
-    border-color: var(--fabric-accent-color);
-    background: var(--fabric-background-quaternary) !important;
+   border-color: var(--fabric-accent-color);
+   background: var(--fabric-background-quaternary) !important;
 
 }
 
 
 .dropdown {
-    width: clamp(25px, 7%, 35px);
-    height: 100%;
-    padding: 0 !important;
+   width: clamp(25px, 7%, 35px);
+   height: 100%;
+   padding: 0 !important;
 
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
-    position: absolute !important;
+   position: absolute !important;
 
-    box-shadow: var(--fabric-boxshadow);
-    right: 0;
+   box-shadow: var(--fabric-boxshadow);
+   right: 0;
 
-    transform: translateX(calc(100% - 8px));
+   transform: translateX(calc(100% - 8px));
 }
 
 .dropdown[data-open = 'true'] {
-    transform: translateX(0);
+   transform: translateX(0);
 
 
-    box-shadow: var(--fabric-boxshadow);
+   box-shadow: var(--fabric-boxshadow);
 }
 
 .dropdown:hover {
-    transform: translateX(0);
+   transform: translateX(0);
 }
 
 .options {
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    top: 0;
-    transform: translateY(50%);
-    width: 150px;
-    min-height: 65px;
-    background: var(--fabric-background-secondary);
-    box-shadow: var(--fabric-boxshadow);
+   position: absolute;
+   z-index: 10;
+   right: 0;
+   top: 0;
+   transform: translateY(50%);
+   width: 150px;
+   min-height: 65px;
+   background: var(--fabric-background-secondary);
+   box-shadow: var(--fabric-boxshadow);
 
 
 }
 
-.card{
+.card {
 
-    height: 35px;
-    width: 35px;
-    bottom: 4px;
-    right: 4px;
+   height: 35px;
+   width: 35px;
+   bottom: 4px;
+   right: 4px;
 
-    transform: none;
+   transform: none;
 
 }
 
-.load{
+.load {
 
-border-radius: 5px;
+   border-radius: 5px;
    width: 100%;
    background: red;
    background: var(--fabric-background-tertiary);

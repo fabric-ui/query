@@ -1,7 +1,7 @@
 import styles from "../styles/Element.module.css";
 import {DataRow, Dropdown, DropdownOption, DropdownOptions} from "@f-ui/core"
 import PropTypes from "prop-types";
-import React, {useEffect, useMemo, useRef, useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import {VARIANTS} from "../List";
 
 export default function Element(props) {
@@ -11,13 +11,19 @@ export default function Element(props) {
    const isCard = useMemo(() => {
       return props.variant === VARIANTS.CARDS
    }, [props.variant])
-   function getRandomHeight(){
-      const min = 250, max = 350
-      return Math.floor(Math.random() * (max - min + 1) + min) + 'px'
-   }
+
+   // function getRandomHeight() {
+   //    const min = 250, max = 350
+   //    return Math.floor(Math.random() * (max - min + 1) + min) + 'px'
+   // }
+
    return (
       <div
          className={styles.listRow}
+         style={{
+            maxWidth: props.variant === VARIANTS.CARDS ? 'calc(20% - 3.25px)' : undefined,
+            minWidth: '250px'
+         }}
          onMouseEnter={() => setOpen(true)}
          onMouseLeave={() => setOpen(false)}
       >
@@ -32,7 +38,8 @@ export default function Element(props) {
                      <React.Fragment key={oI + 'list-option'}>
                         <DropdownOption
                            option={{
-                              ...o, onClick: () => {
+                              ...o,
+                              onClick: () => {
                                  if (o.validadeChoice)
                                     props.setOnValidation({
                                        data: props.data,
@@ -41,23 +48,24 @@ export default function Element(props) {
                                     })
                                  else
                                     o.onClick(props.data)
-
                               }
-                           }}/>
+                           }}
+                        />
                      </React.Fragment>
                   ))}
                </DropdownOptions>
             </Dropdown>
          ) : null}
 
-         {props.loading && isCard  ?
-            <div className={styles.load} style={{height: getRandomHeight()}}/>
+         {props.loading && isCard ?
+            <div className={styles.load} style={{height: props.cardHeight}}/>
             :
             <DataRow
                asCard={isCard}
                className={styles.row}
-               cellStyles={{maxHeight: '50vh'}}
                styles={{
+
+                  height: props.cardHeight,
                   background: props.highlight ? 'var(--fabric-accent-color)' : isCard || props.linearColor ? 'var(--fabric-background-secondary)' : props.index % 2 === 0 ? 'var(--fabric-background-tertiary)' : undefined,
                   borderRadius: isCard ? undefined : props.index === 0 ? '5px 5px 0 0' : props.isLast ? '0 0 5px 5px' : 0
                }}
@@ -71,6 +79,7 @@ export default function Element(props) {
 }
 
 Element.propTypes = {
+   cardHeight: PropTypes.string,
    linearColor: PropTypes.bool,
    highlight: PropTypes.bool,
    loading: PropTypes.bool,
@@ -81,6 +90,5 @@ Element.propTypes = {
    data: PropTypes.object,
    options: PropTypes.array,
    index: PropTypes.number,
-   page: PropTypes.number,
    fetchPage: PropTypes.number
 }
