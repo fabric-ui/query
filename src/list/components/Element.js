@@ -69,6 +69,7 @@ export default function Element(props) {
                   background: props.highlight ? 'var(--fabric-accent-color)' : isCard || props.linearColor ? 'var(--fabric-background-secondary)' : props.index % 2 === 0 ? 'var(--fabric-background-tertiary)' : undefined,
                   borderRadius: isCard ? undefined : props.index === 0 ? '5px 5px 0 0' : props.isLast ? '0 0 5px 5px' : 0
                }}
+               cellStyles={props.cellStyles}
                index={props.index}
                onClick={() => props.onRowClick(props.data)}
                reference={props.lastElementRef}/>
@@ -79,6 +80,8 @@ export default function Element(props) {
 }
 
 Element.propTypes = {
+   cellStyles: PropTypes.object,
+
    cardHeight: PropTypes.string,
    linearColor: PropTypes.bool,
    highlight: PropTypes.bool,

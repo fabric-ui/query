@@ -90,12 +90,14 @@ export default function List(props) {
                keys={visualizeKeys} actions={actions} dispatch={keysDispatcher}
                setOpenSettings={setOpenSettings}
             />
+
             <div
                className={styles.tableWrapper}
             >
-               <ListTabs currentTab={currentTab}
-                         setCurrentTab={setCurrentTab} hook={props.hook}
-                         variant={variant}/>
+               <ListTabs
+                  currentTab={currentTab}
+                  setCurrentTab={setCurrentTab} hook={props.hook}
+                  variant={variant}/>
                {props.hook.data.length === 0 && !props.hook.loading ?
                   <div className={styles.empty}>
                      <span className={'material-icons-round'} style={{fontSize: '75px'}}>folder</span>

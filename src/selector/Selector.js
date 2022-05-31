@@ -56,7 +56,6 @@ export default function Selector(props) {
                 </div>}
 
                 <DropdownOptions>
-
                     <SelectorModal
                         {...props}
                         hook={hook}

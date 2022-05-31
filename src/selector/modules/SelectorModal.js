@@ -24,7 +24,7 @@ export default function SelectorModal(props) {
          if (props.mapKeyOnNull && !d.data[props.mapKeyOnNull.key])
             return {...d.data, [props.mapKeyOnNull.key]: props.mapKeyOnNull.value(d.data)}
          return d.data
-      }), true)
+      }), false)
 
    const nodes = toRender.map((e, index) => (
       <React.Fragment key={e.id + '-list-row'}>
@@ -36,7 +36,11 @@ export default function SelectorModal(props) {
                if (dropdownContext.setOpen)
                   dropdownContext.setOpen(false)
             }}
-            variant={VARIANTS.EMBEDDED}
+            cellStyles={{
+               fontWeight: '550',
+               fontSize: '.7rem'
+            }}
+            variant={VARIANTS.MINIMAL}
             isLast={index === props.hook.data.length - 1}
             data={e.data}
             page={currentTab}
@@ -55,7 +59,7 @@ export default function SelectorModal(props) {
 
          <div style={{display: 'flex', width: '100%', alignItems: 'center', gap: '4px'}}>
 
-            {props.value && Object.keys(props.value).length > 0 ?
+            {typeof props.value === 'object' && props.value && Object.keys(props.value).length > 0 ?
 
                <DataRow
                   onClick={() => {
@@ -64,28 +68,24 @@ export default function SelectorModal(props) {
                   }}
                   keys={props.keys} object={props.value}
                   styles={{
-                     minHeight: '45px',
                      padding: 0,
                      width: '100%',
                      background: 'var(--fabric-background-tertiary)',
                      borderColor: 'var(--fabric-accent-color)',
                      borderWidth: '2px'
                   }}
-                  selfContained={true}
                /> : <DataRow
                   onClick={() => {
                      if (props.onClick) props.onClick()
 
                   }}
                   styles={{
-                     minHeight: '35px',
-                     padding: '4px',
+                     padding: '0 4px',
                      width: '100%',
                      background: 'var(--fabric-border-primary)'
                   }}
                   keys={[{label: '', type: 'string', key: 'k'}]}
                   object={{k: translate('nothing')}}
-                  selfContained={false}
                />}
 
             <Button
@@ -102,7 +102,7 @@ export default function SelectorModal(props) {
                className={styles.headerButton}
                disabled={!props.value}
                attributes={{
-                  title:  translate('clean')
+                  title: translate('clean')
                }}>
                <span className="material-icons-round" style={{fontSize: '1.1rem'}}>delete</span>
             </Button>
@@ -126,8 +126,19 @@ export default function SelectorModal(props) {
                   currentTab={currentTab}
                   setCurrentTab={setCurrentTab} hook={props.hook}
                   variant={VARIANTS.CARDS}/>
+               <div className={styles.headers}>
+                  {props.keys.map(k => (
+                     <div key={k.key + '-object-property'} title={k.label}
+                          style={{
+                             width: k.additionalWidth ? `calc(100% + ${k.additionalWidth})` : '100%',
+                             padding: '0 8px'
+                          }} className={styles.overflowEllipsis}>
+                        {k.label}
+                     </div>
+                  ))}
+               </div>
                {props.hook.data.length === 0 ? (
-                     <div className={styles.empty} title={ translate('nothing')}>
+                     <div className={styles.empty} title={translate('nothing')}>
                         <span className="material-icons-round" style={{fontSize: '70px'}}>folder</span>
                      </div>
                   ) :
