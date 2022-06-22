@@ -2,7 +2,7 @@ import styles from "../styles/Settings.module.css";
 
 import React from "react";
 import PropTypes from "prop-types";
-import {Button} from "@f-ui/core";
+import {Button, Icon} from "@f-ui/core";
 import useLocale from "../../locale/useLocale";
 
 export default function SettingsField(props){
@@ -22,9 +22,9 @@ export default function SettingsField(props){
                     })
                 }}>
                 {props.field.visible ?
-                    <span className="material-icons-round" style={{fontSize: '1.1rem'}}>visibility</span>
+                    <Icon   styles={{fontSize: '1.1rem'}}>visibility</Icon>
                     :
-                    <span className="material-icons-round" style={{fontSize: '1.1rem'}}>visibility_off</span>
+                    <Icon   styles={{fontSize: '1.1rem'}}>visibility_off</Icon>
                 }
 
             </Button>

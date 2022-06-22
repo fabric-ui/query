@@ -91,7 +91,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                     <div className={styles.fieldWrapper}>
                         <TextField
                             width={'100%'} disabled={false}
-                            handleChange={value => handleChange(value.target.value)}
+                            handleChange={handleChange}
                             value={filter.value}
                             placeholder={filter.label}
                             noMargin={true}
@@ -100,8 +100,6 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                                     applyFilter()
                             }}
                         />
-
-
                         <div className={styles.options}>
                             <Checkbox
                                 noMargin={true}
@@ -147,7 +145,7 @@ export default function useFilter(filter, setFilter, setSelectorOpen, selectorOp
                     <TextField
                         width={'100%'}
                         disabled={false} required={false}
-                        handleChange={value => handleChange(value.target.value)}
+                        handleChange={handleChange}
                         type={'number'} placeholder={filter.label}
                         value={filter.value}
                         onEnter={() => {

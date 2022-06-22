@@ -1,7 +1,7 @@
 import styles from '../styles/SelectorModal.module.css'
 import React, {useContext, useMemo, useState} from "react";
 import PropTypes from "prop-types";
-import {Button, DataProvider, DataRow, DropdownProvider} from "@f-ui/core";
+import {Button, DataProvider, DataRow, DropdownProvider, Icon} from "@f-ui/core";
 import ListTabs from "../../list/ListTabs";
 import {VARIANTS} from "../../list/List";
 import Element from "../../list/components/Element";
@@ -105,7 +105,7 @@ export default function SelectorModal(props) {
                attributes={{
                   title: translate('clean')
                }}>
-               <span className="material-icons-round" style={{fontSize: '1.1rem'}}>delete</span>
+               <Icon styles={{fontSize: '1.1rem'}}>delete</Icon>
             </Button>
             <Button
                variant={'outlined'}
@@ -117,7 +117,7 @@ export default function SelectorModal(props) {
                   title: translate('reload')
                }}
             >
-               <span className="material-icons-round" style={{fontSize: '1.1rem'}}>refresh</span>
+               <Icon styles={{fontSize: '1.1rem'}}>refresh</Icon>
             </Button>
          </div>
          <DataProvider.Provider value={hook}>
@@ -140,7 +140,7 @@ export default function SelectorModal(props) {
                </div>
                {props.hook.data.length === 0 ? (
                      <div className={styles.empty} title={translate('nothing')}>
-                        <span className="material-icons-round" style={{fontSize: '70px'}}>folder</span>
+                        <Icon styles={{fontSize: '70px'}}>folder</Icon>
                      </div>
                   ) :
                   nodes

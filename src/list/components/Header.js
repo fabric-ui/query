@@ -4,7 +4,7 @@ import React, {useMemo} from "react";
 import useHeader from "../hook/useHeader";
 import keyTemplate from "../templates/keyTemplate";
 import Filter from "../../filter/Filter";
-import {Button, Dropdown, DropdownOption, DropdownOptions, ToolTip} from "@f-ui/core";
+import {Button, Dropdown, DropdownOption, DropdownOptions, Icon, ToolTip} from "@f-ui/core";
 import {VARIANTS} from "../List";
 import useLocale from "../../locale/useLocale";
 
@@ -61,7 +61,7 @@ export default function Header(props) {
                               background: 'var(--fabric-border-primary)'
                            }}
                         >
-                           <span className="material-icons-round" style={{fontSize: '1.1rem'}}>{o.icon}</span>
+                           <Icon styles={{fontSize: '1.1rem'}}>{o.icon}</Icon>
                            <ToolTip>
                               {o.label}
                            </ToolTip>
@@ -76,22 +76,19 @@ export default function Header(props) {
                   className={styles.button}
                   styles={{background: 'var(--fabric-border-primary)'}}
                >
-                        <span className="material-icons-round"
-                              style={{fontSize: '1.2rem'}}>more_vert</span>
+                  <Icon styles={{fontSize: '1.2rem'}}>more_vert</Icon>
                   <DropdownOptions>
 
                      <DropdownOption option={{
                         label: translate('reload'),
-                        icon: <span className="material-icons-round"
-                                    style={{fontSize: '1.2rem'}}>refresh</span>,
+                        icon: <Icon styles={{fontSize: '1.2rem'}}>refresh</Icon>,
                         onClick: () => {
                            props.hook.clean()
                         }
                      }}/>
                      <DropdownOption option={{
                         label: translate('settings'),
-                        icon: <span className="material-icons-round"
-                                    style={{fontSize: '1.2rem'}}>settings</span>,
+                        icon: <Icon styles={{fontSize: '1.2rem'}}>settings</Icon>,
                         onClick: () => {
                            props.setOpenSettings(true)
                         }
@@ -105,11 +102,9 @@ export default function Header(props) {
                   onClick={() => props.onCreate()}
                   variant={"filled"}
                   className={styles.button}>
-                      <span className="material-icons-round"
-                            style={{fontSize: '1.2rem'}}
-                      >
-                            add
-                        </span>
+                  <Icon styles={{fontSize: '1.2rem'}}>
+                     add
+                  </Icon>
                </Button>
             </div>
          </div>

@@ -3,7 +3,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 
 import styles from '../../list/styles/Row.module.css'
 import keyTemplate from "../../list/templates/keyTemplate";
-import {Button, Dropdown, DropdownOptions, ToolTip} from "@f-ui/core";
+import {Button, Dropdown, DropdownOptions, Icon, ToolTip} from "@f-ui/core";
 
 import Field from "./Field";
 
@@ -12,20 +12,20 @@ const getIcon = (type) => {
     let icon
     switch (type) {
         case 'date': {
-            icon = <span className="material-icons-round" style={{fontSize: '1.2rem'}}>calendar_today</span>
+            icon = <Icon styles={{fontSize: '1.2rem'}}>calendar_today</Icon>
             break
         }
 
         case 'string': {
-            icon = <span className="material-icons-round" style={{fontSize: '1.2rem'}}>text_fields</span>
+            icon = <Icon styles={{fontSize: '1.2rem'}}>text_fields</Icon>
             break
         }
         case 'object': {
-            icon = <span className="material-icons-round" style={{fontSize: '1.2rem'}}>link</span>
+            icon = <Icon styles={{fontSize: '1.2rem'}}>link</Icon>
             break
         }
         default: {
-            icon = <span className="material-icons-round" style={{fontSize: '1.2rem'}}>category</span>
+            icon = <Icon styles={{fontSize: '1.2rem'}}>category</Icon>
             break
         }
     }

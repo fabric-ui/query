@@ -29,7 +29,7 @@ export default function Field(props) {
                         variant={'filled'}
                         disabled={!changed}
                         onClick={() => props.applyFilter()}>
-                        <span style={{fontSize: '1.1rem'}} className="material-icons-round">done</span>
+                        <span style={{fontSize: '1.1rem'}}>done</span>
                         {translate('apply')}
                      </Button>
 

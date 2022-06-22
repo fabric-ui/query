@@ -3,7 +3,7 @@ import styles from "./styles/Field.module.css";
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import keyTemplate from "../list/templates/keyTemplate";
-import {Button} from "@f-ui/core";
+import {Button, Icon} from "@f-ui/core";
 import Header from "./components/Header";
 
 export default function Filter(props) {
@@ -42,7 +42,7 @@ export default function Filter(props) {
                                 newFilters.splice(i, 1)
                                 props.setFilters(newFilters)
                             }} className={styles.button}>
-                            <span className="material-icons-round" style={{fontSize: '1rem'}}>close</span>
+                            <Icon  styles={{fontSize: '1rem'}}>close</Icon>
                         </Button>
                     </div>
                 ))
