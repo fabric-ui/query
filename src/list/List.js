@@ -5,10 +5,12 @@ import React, {useMemo, useState} from "react";
 import keyTemplate from "./templates/keyTemplate";
 import useList from "./hook/useList";
 import Settings from "./components/Settings";
-import {DataProvider, useInfiniteScroll, useListData} from "@f-ui/core"
+import {DataProvider} from "@f-ui/core"
 import Element from "./components/Element";
 import Validate from "./components/Validate";
 import ListTabs from "./ListTabs";
+import useListData from "../hooks/useListData";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
 export const VARIANTS = {
    EMBEDDED: 0,

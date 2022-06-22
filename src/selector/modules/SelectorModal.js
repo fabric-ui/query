@@ -1,11 +1,12 @@
 import styles from '../styles/SelectorModal.module.css'
 import React, {useContext, useMemo, useState} from "react";
 import PropTypes from "prop-types";
-import {Button, DataProvider, DataRow, DropdownProvider, useListData} from "@f-ui/core";
+import {Button, DataProvider, DataRow, DropdownProvider} from "@f-ui/core";
 import ListTabs from "../../list/ListTabs";
 import {VARIANTS} from "../../list/List";
 import Element from "../../list/components/Element";
 import useLocale from "../../locale/useLocale";
+import useListData from "../../hooks/useListData";
 
 export default function SelectorModal(props) {
    const [currentTab, setCurrentTab] = useState(0)
