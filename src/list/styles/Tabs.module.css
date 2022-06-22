@@ -19,7 +19,7 @@
 .nav {
    height: 30px;
    width: 30px;
-   padding: 0px !important;
+   padding: 0 !important;
 
    background: var(--fabric-border-primary);
    display: flex;

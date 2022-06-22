@@ -17,7 +17,6 @@
 }
 
 .header {
-   font-family: "Roboto";
 
    width: 100%;
    font-size: 1.2rem;
@@ -52,10 +51,6 @@
    text-align: left;
 }
 
-.columnLabel {
-   font-size: .75rem;
-   color: var(--fabric-color-quaternary);
-}
 
 .rows {
    position: relative;
@@ -68,16 +63,7 @@
 
 }
 
-.hoveredRow {
-   background: var(--fabric-background-quaternary);
-   border-color: var(--fabric-accent-color);
-   border-style: solid;
-}
 
-
-.emptyRow {
-   color: var(--fabric-color-quinary);
-}
 
 .empty {
    display: grid;
@@ -112,15 +98,6 @@
 }
 
 
-.headerButtons {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
-
-.mainRow {
-   background: var(--fabric-background-tertiary);
-}
 
 .headers {
    height: 25px;

@@ -1,6 +1,6 @@
 {
    "name": "@f-ui/query",
-   "version": "0.1.1-alpha",
+   "version": "0.1.2-alpha",
    "private": false,
    "author": "facobackup",
    "license": "MIT",
@@ -17,14 +17,14 @@
       "prop-types": "^15.7.2",
       "react": "^18.1.0",
       "react-dom": "^18.1.0",
-      "@f-ui/core": "^0.2.13-alpha",
+      "@f-ui/core": "^0.2.14-alpha",
       "axios": "^0.26.1"
    },
    "peerDependencies": {
       "prop-types": "^15.7.2",
       "react": "^18.1.0",
       "react-dom": "^18.1.0",
-      "@f-ui/core": "^0.2.13-alpha",
+      "@f-ui/core": "^0.2.14-alpha",
       "axios": "^0.26.1"
    },
    "devDependencies": {

@@ -21,19 +21,6 @@
 }
 
 
-.selectedEntityContainer {
-    width: 100%;
-    border: none;
-
-    height: 56px;
-    color: var(--fabric-color-primary);
-    font-size: .75rem;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-}
 
 .divider {
     height: 30px;

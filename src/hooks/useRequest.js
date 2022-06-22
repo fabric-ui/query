@@ -1,12 +1,12 @@
 import React, {useContext, useState} from "react";
 import axios from "axios";
-import {AlertProvider} from "@f-ui/core";
 import useLocale from "../locale/useLocale";
+import {useAlert} from "@f-ui/core";
 
 export default function useRequest(sS = true) {
-   const alert = useContext(AlertProvider)
    const [showSuccess, setShowSuccess] = useState(sS)
    const translate = useLocale()
+   useAlert(true)
    const make = async (params, overrideShowSuccess, showError = true) => {
       let res
       try {
