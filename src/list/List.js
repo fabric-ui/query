@@ -87,7 +87,9 @@ export default function List(props) {
                createOption={props.createOption}
                onCreate={props.onCreate}
                hook={props.hook}
-               keys={visualizeKeys} actions={actions} dispatch={keysDispatcher}
+               keys={visualizeKeys}
+               actions={actions}
+               dispatch={keysDispatcher}
                setOpenSettings={setOpenSettings}
             />
 
