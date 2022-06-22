@@ -1,6 +1,7 @@
 import React, {useMemo} from "react";
 import PropTypes from "prop-types";
 import styles from './styles/Avatar.module.css'
+import {Icon} from "@f-ui/core";
 
 export default function Avatar(props) {
    const size = useMemo(() => {
@@ -21,10 +22,15 @@ export default function Avatar(props) {
                    border: props.outlined ? 'var(--fabric-border-primary) 1px solid' : "unset",
                    borderRadius: props.variant === 'square' ? '5px' : undefined
                 }}>
-      {props.src ? <img
-         className={[styles.img, props.className].join(' ')}
-         style={props.styles} src={props.src}
-         alt={props.alt}/> : <span style={{fontSize: size}} className={'material-icons-round'}>account_circle</span>}
+      {props.src ?
+         <img
+            className={[styles.img, props.className].join(' ')}
+            style={props.styles} src={props.src}
+            alt={props.alt}
+         />
+         :
+         <Icon styles={{fontSize: size}}>account_circle</Icon>
+      }
    </div>)
 }
 Avatar.propTypes = {

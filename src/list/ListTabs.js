@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from "react";
 import PropTypes from "prop-types";
 import {VARIANTS} from "./List";
 import styles from './styles/Tabs.module.css'
-import {Button, Dropdown, DropdownOption, DropdownOptions} from "@f-ui/core";
+import {Button, Dropdown, DropdownOption, DropdownOptions, Icon} from "@f-ui/core";
 import useLocale from "../locale/useLocale";
 
 export default function ListTabs(props) {
@@ -52,7 +52,7 @@ export default function ListTabs(props) {
                      onClick={() => {
                         setCurrentTab(prev => prev - 1)
                      }}>
-                     <span className={'material-icons-round'}>chevron_left</span>
+                     <Icon>chevron_left</Icon>
                   </Button>
 
                   <Button
@@ -65,7 +65,7 @@ export default function ListTabs(props) {
                         setCurrentTab(prev => prev + 1)
                         if (t >= p) setCurrentPage(prev => prev + (currentTab === currentPage ? 2 : 1))
                      }}>
-                     <span className={'material-icons-round'}>chevron_right</span>
+                     <Icon>chevron_right</Icon>
                   </Button>
                </div>
             </>

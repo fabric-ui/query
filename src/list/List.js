@@ -5,7 +5,7 @@ import React, {useMemo, useState} from "react";
 import keyTemplate from "./templates/keyTemplate";
 import useList from "./hook/useList";
 import Settings from "./components/Settings";
-import {DataProvider} from "@f-ui/core"
+import {DataProvider, Icon} from "@f-ui/core"
 import Element from "./components/Element";
 import Validate from "./components/Validate";
 import ListTabs from "./ListTabs";
@@ -104,7 +104,7 @@ export default function List(props) {
                   variant={variant}/>
                {props.hook.data.length === 0 && !props.hook.loading ?
                   <div className={styles.empty}>
-                     <span className={'material-icons-round'} style={{fontSize: '75px'}}>folder</span>
+                     <Icon styles={{fontSize: '75px'}}>folder</Icon>
                      Nada encontrado
                   </div>
                   :
